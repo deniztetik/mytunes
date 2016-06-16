@@ -8,17 +8,18 @@ var PlayerView = Backbone.View.extend({
   initialize: function() {
   },
 
-  events: {
-    'ended': function() {
-      console.log(this);
-      console.log(this.model);
-      this.model.dequeue();
-    }
-  },
-
   setSong: function(song){
     this.model = song;
     this.render();
+  },
+
+  events: {
+    'ended': function() {
+      this.model.dequeue();
+    },
+    'click': function() {
+      this.model.dequeue();
+    }
   },
 
   render: function(){
